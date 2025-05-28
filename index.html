@@ -347,13 +347,13 @@
       <div class="cerrar-modal ">
         <i id="cerrar_modal" class="cerrarmodal fas fa-times-circle"></i>
       </div>
-      <form action="" class="form-modal" >
+      <form action="" class="form-modal" method="post" name="form_modal">
         <h4>Send our messages.</h4>
-        <input type="text" name="" id="" placeholder="EMAIL*" class="input-form">
+        <input type="text" name="" id="email_modal" placeholder="EMAIL*" class="input-form">
         <br>
-        <textarea name="" id="" placeholder="DESCRIPTION*"></textarea>
+        <textarea name="" id="desc_modal" placeholder="DESCRIPTION*"></textarea>
         <br>
-        <button class="btn-form" >SUBMIT</button>
+        <button class="btn-form" id="enviar" onclick="validarFormularioModal()">SUBMIT</button>
       </form>
     </div>
   </section>
@@ -507,6 +507,14 @@
       if(document.getElementById("nombre_footer").value === "" || 
          document.getElementById("email_footer").value === "" || 
          document.getElementById("message_footer").value === "") {
+        alert("Por favor, completa todos los campos.");
+        return false;
+      }
+    }
+
+    function validarFormularioModal() {
+      if(document.getElementById("email_modal").value === "" || 
+         document.getElementById("desc_modal").value === "") {
         alert("Por favor, completa todos los campos.");
         return false;
       }
